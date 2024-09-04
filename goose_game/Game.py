@@ -13,12 +13,19 @@ class Game:
         self.is_finished = False
 
     def add_player(self):
-        print("Add player:")
+        print("Add player: (min two players, press enter when you are finished)")
         name = input(">>> ")
         if name.strip():
             logging.debug("creating new player with name {}".format(name))
             new_player = Player(name, self.board)
-            self.players.append(new_player)
+            duplicate = False
+            for player in self.players:
+                if new_player.name.lower() == player.name.lower():
+                    print("{} already existsting player".format(new_player.name))
+                    duplicate = True
+
+            if not duplicate:
+                self.players.append(new_player)
 
             players = ""
             for p in self.players:
