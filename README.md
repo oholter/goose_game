@@ -1,4 +1,4 @@
-# goose_game
+# Goose Game
 
 To run the application:
 `python3 -m goose_game.runner`
